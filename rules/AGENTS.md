@@ -11,6 +11,12 @@
   Copy-Item -Path "C:\Users\amitk\Antigravity\plugin.json","C:\Users\amitk\Antigravity\README.md","C:\Users\amitk\Antigravity\agents","C:\Users\amitk\Antigravity\skills","C:\Users\amitk\Antigravity\rules" -Destination "$env:USERPROFILE\.gemini\config\plugins\agy-configs" -Recurse -Force
   ```
 
+# Orchestrator Subagent (New, Unrelated, or Complex Tasks)
+
+- Whenever a new task, unrelated chat topic, or any complex task arrives, create/invoke an **orchestrator** subagent using **Hydrogen High** (`orchestrator` agent / `Model: "flash"` with `EnableSubagentTools: true` and `EnableWriteTools: true`, or `swarm` pinned to `gemini-4-hydrogen-high`) and let it drive the whole work end-to-end.
+- The orchestrator still follows the **Hydrogen-first, automatic Carbon-escalation** policy for execution, as well as the PR-only and `agy-configs` sync rules.
+- Keep the parent conversation lean: delegate, stop calling tools to wait for completion (never poll), and report the verified outcome.
+
 # Tiered Worker Routing (Hydrogen-First, Automatic Carbon Escalation)
 
 ## 1. Always Start on Hydrogen
