@@ -2,6 +2,10 @@
 
 - Keep changes focused, minimal, and well-tested.
 - Never commit secrets, API keys, or personal tokens.
+- **Sync `agy-configs` plugin edits:** Whenever you edit `plugin.json`, `README.md`, `agents/`, `skills/`, or `rules/` in `C:\Users\amitk\Antigravity`, always sync the installed global plugin copy in `%USERPROFILE%\.gemini\config\plugins\agy-configs` before finishing (and remove any deleted/renamed files from the destination copy if applicable):
+  ```powershell
+  Copy-Item -Path "C:\Users\amitk\Antigravity\plugin.json","C:\Users\amitk\Antigravity\README.md","C:\Users\amitk\Antigravity\agents","C:\Users\amitk\Antigravity\skills","C:\Users\amitk\Antigravity\rules" -Destination "$env:USERPROFILE\.gemini\config\plugins\agy-configs" -Recurse -Force
+  ```
 
 # Tiered Worker Routing (Hydrogen-First, Automatic Carbon Escalation)
 
