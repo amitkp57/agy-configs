@@ -1,0 +1,10 @@
+# Environment & secrets
+.env
+.env.*
+*.local.json
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
