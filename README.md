@@ -7,7 +7,8 @@ Personal Antigravity customizations: tiered Hydrogen/Carbon worker agents, routi
 ```text
 agy-configs/
 ├── plugin.json                    # Plugin manifest
-├── agents/                        # Worker subagents (.md)
+├── agents/                        # Worker & orchestrator subagents (.md)
+│   ├── orchestrator.md            # Hydrogen High orchestrator (model: flash)
 │   ├── hydrogen-low.md            # model: flash_lite (swarm: gemini-4-hydrogen-low)
 │   ├── hydrogen-medium.md         # model: flash      (swarm: gemini-4-hydrogen-medium)
 │   ├── hydrogen-high.md           # model: flash      (swarm: gemini-4-hydrogen-high)
@@ -20,13 +21,14 @@ agy-configs/
 │   ├── repo-audit/SKILL.md        # Repository health check skill
 │   └── tiered-dispatch/SKILL.md   # Hydrogen-first routing & Carbon escalation playbook
 └── rules/
-    └── AGENTS.md                  # Always-on Hydrogen-first & auto-escalation rules
+    └── AGENTS.md                  # Always-on orchestrator, PR-only, and routing rules
 ```
 
-## Routing Policy
+## Routing & Orchestration Policy
 
-1. **All initial work goes to Hydrogen** (`hydrogen-low`, `hydrogen-medium`, `hydrogen-high`, or `hydrogen-xhigh`) matched to task difficulty.
-2. **Automatic Carbon escalation:** If a Hydrogen worker returns `STATUS: ESCALATE` or remains blocked after retries, work automatically escalates to `carbon-low`, `carbon-medium`, or `carbon-high`.
+1. **Orchestrator subagent for new/unrelated/complex tasks:** When a new task, unrelated chat topic, or complex task arrives, invoke an **orchestrator** subagent on Hydrogen High (`orchestrator` agent / `flash`) to drive the entire task end-to-end.
+2. **All initial work goes to Hydrogen:** The orchestrator delegates implementation to the lowest-tier Hydrogen worker (`hydrogen-low`, `hydrogen-medium`, `hydrogen-high`, `hydrogen-xhigh`) matching the task's complexity.
+3. **Automatic Carbon escalation:** If a Hydrogen worker returns `STATUS: ESCALATE` or remains blocked after retries, work automatically escalates to `carbon-low`, `carbon-medium`, or `carbon-high`.
 
 ## Usage
 
