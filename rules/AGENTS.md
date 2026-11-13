@@ -2,6 +2,10 @@
 
 - Keep changes focused, minimal, and well-tested.
 - Never commit secrets, API keys, or personal tokens.
+- **Pull Requests only (no direct commits to main):**
+  - Never commit or push directly to `main` (or `master`).
+  - Always create a feature branch (`git checkout -b <type>/<short-name>`), commit changes there, push the branch (`git push -u origin <branch>`), and open a Pull Request (`gh pr create` / `& "C:\Program Files\GitHub CLI\gh.exe" pr create`).
+  - Wait for review/merge before deleting the branch and updating `main`.
 - **Sync `agy-configs` plugin edits:** Whenever you edit `plugin.json`, `README.md`, `agents/`, `skills/`, or `rules/` in `C:\Users\amitk\Antigravity`, always sync the installed global plugin copy in `%USERPROFILE%\.gemini\config\plugins\agy-configs` before finishing (and remove any deleted/renamed files from the destination copy if applicable):
   ```powershell
   Copy-Item -Path "C:\Users\amitk\Antigravity\plugin.json","C:\Users\amitk\Antigravity\README.md","C:\Users\amitk\Antigravity\agents","C:\Users\amitk\Antigravity\skills","C:\Users\amitk\Antigravity\rules" -Destination "$env:USERPROFILE\.gemini\config\plugins\agy-configs" -Recurse -Force
