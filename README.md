@@ -8,13 +8,13 @@ Personal Antigravity customizations: tiered Hydrogen/Carbon worker agents, routi
 agy-configs/
 ├── plugin.json                    # Plugin manifest
 ├── agents/                        # Worker subagents (.md)
-│   ├── hydrogen-low.md            # gemini-4-hydrogen-low
-│   ├── hydrogen-medium.md         # gemini-4-hydrogen-medium
-│   ├── hydrogen-high.md           # gemini-4-hydrogen-high
-│   ├── hydrogen-xhigh.md          # gemini-4-hydrogen-xhigh
-│   ├── carbon-low.md              # gemini-4-carbon-low (escalation)
-│   ├── carbon-medium.md           # gemini-4-carbon-medium (escalation)
-│   ├── carbon-high.md             # gemini-4-carbon-high (escalation)
+│   ├── hydrogen-low.md            # model: flash_lite (swarm: gemini-4-hydrogen-low)
+│   ├── hydrogen-medium.md         # model: flash      (swarm: gemini-4-hydrogen-medium)
+│   ├── hydrogen-high.md           # model: flash      (swarm: gemini-4-hydrogen-high)
+│   ├── hydrogen-xhigh.md          # model: flash      (swarm: gemini-4-hydrogen-xhigh)
+│   ├── carbon-low.md              # model: pro        (swarm: gemini-4-carbon-low)
+│   ├── carbon-medium.md           # model: pro        (swarm: gemini-4-carbon-medium)
+│   ├── carbon-high.md             # model: pro        (swarm: gemini-4-carbon-high)
 │   └── code-reviewer.md           # General code review subagent
 ├── skills/
 │   ├── repo-audit/SKILL.md        # Repository health check skill
@@ -34,8 +34,8 @@ agy-configs/
   ```powershell
   agy plugin install https://github.com/amitkp57/agy-configs
   ```
-* **Or link locally across all workspaces (Windows):**
-  Create a directory junction so edits in this repo take effect globally:
+* **Or install locally in Antigravity (Windows):**
+  Copy the plugin files into `%USERPROFILE%\.gemini\config\plugins\agy-configs\` (Antigravity's plugin scanner requires a real directory rather than a Windows directory junction):
   ```powershell
-  New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\agy-configs" -Target "C:\Users\amitk\Antigravity"
+  Copy-Item -Path "plugin.json","README.md","agents","skills","rules" -Destination "$env:USERPROFILE\.gemini\config\plugins\agy-configs" -Recurse -Force
   ```

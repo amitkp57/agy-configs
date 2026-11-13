@@ -5,7 +5,7 @@ description: >-
   features, interface refactors, and non-trivial debugging.
 subagent: true
 mainAgent: false
-model: gemini-4-hydrogen-high
+model: flash
 tools:
   - read_file
   - edit_file

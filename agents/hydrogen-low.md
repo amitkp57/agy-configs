@@ -6,7 +6,7 @@ description: >-
   simple single-file edits. Start simple tasks here first.
 subagent: true
 mainAgent: false
-model: gemini-4-hydrogen-low
+model: flash_lite
 tools:
   - read_file
   - edit_file

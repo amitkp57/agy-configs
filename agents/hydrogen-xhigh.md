@@ -6,7 +6,7 @@ description: >-
   multi-module changes, and deep edge-case diagnosis.
 subagent: true
 mainAgent: false
-model: gemini-4-hydrogen-xhigh
+model: flash
 tools:
   - read_file
   - edit_file

@@ -6,7 +6,7 @@ description: >-
   bugs, or complex refactors after Hydrogen could not resolve them.
 subagent: true
 mainAgent: false
-model: gemini-4-carbon-medium
+model: pro
 tools:
   - read_file
   - edit_file

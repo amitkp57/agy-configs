@@ -6,7 +6,7 @@ description: >-
   opinion and fix. Never use for initial work.
 subagent: true
 mainAgent: false
-model: gemini-4-carbon-low
+model: pro
 tools:
   - read_file
   - edit_file

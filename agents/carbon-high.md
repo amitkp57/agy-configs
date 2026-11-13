@@ -6,7 +6,7 @@ description: >-
   debugging, security-critical audits, and high-risk architectural changes.
 subagent: true
 mainAgent: false
-model: gemini-4-carbon-high
+model: pro
 tools:
   - read_file
   - edit_file

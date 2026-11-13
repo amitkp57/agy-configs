@@ -6,7 +6,7 @@ description: >-
   bug fixes with a clear reproduction.
 subagent: true
 mainAgent: false
-model: gemini-4-hydrogen-medium
+model: flash
 tools:
   - read_file
   - edit_file
